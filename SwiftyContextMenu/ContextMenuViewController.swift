@@ -85,6 +85,8 @@ class ContextMenuViewController: UIViewController {
     private func addContextMenuTableView() {
         contextMenuTableView.delegate = self
         contextMenuTableView.dataSource = self
+        contextMenuTableView.separatorStyle = .none
+        contextMenuTableView.backgroundColor = UIColor(named: "Lighter")
         contextMenuTableView.rowHeight = UITableView.automaticDimension
         contextMenuTableView.estimatedRowHeight = 44
         contextMenuTableView.register(ContextMenuActionTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
@@ -127,7 +129,7 @@ class ContextMenuViewController: UIViewController {
             horizontalConstraint = contextMenuView.leadingAnchor.constraint(equalTo: snapshotImageView.leadingAnchor)
         }
         NSLayoutConstraint.activate([
-            contextMenuView.widthAnchor.constraint(equalToConstant: 250),
+            contextMenuView.widthAnchor.constraint(equalToConstant: contextMenu.layout.width),
             horizontalConstraint,
             verticalConstraint,
             edgeConstraint

@@ -26,6 +26,7 @@ class ContextMenuActionTableViewCell: UITableViewCell {
         separatorView.alpha = 0.7
         lightSelectedBackgroundView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: UIBlurEffect(style: .light)))
         lightSelectedBackgroundView.contentView.fill(with: separatorView)
+        lightSelectedBackgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         
         darkSelectedBackgroundView = UIView(frame: .zero)
         darkSelectedBackgroundView.backgroundColor = UIColor.white.withAlphaComponent(0.1)
@@ -33,6 +34,8 @@ class ContextMenuActionTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
         textLabel?.numberOfLines = 0
+        textLabel?.font = UIFont(name: "CircularXX-Medium", size: 17)
+        textLabel?.textColor = UIColor.red //(named: "Light Text")
         rightImageView.contentMode = .scaleAspectFit
         accessoryView = rightImageView
         addSeparatorView()
@@ -86,13 +89,14 @@ class ContextMenuActionTableViewCell: UITableViewCell {
         lightSelectedBackgroundView.bounds = bounds
         lightSelectedBackgroundView.contentView.subviews.first?.frame = bounds
         
-        switch style {
-        case .automatic:
-            selectedBackgroundView = isDarkMode ? darkSelectedBackgroundView : lightSelectedBackgroundView
-        case .light:
-            selectedBackgroundView = lightSelectedBackgroundView
-        case .dark:
-            selectedBackgroundView = darkSelectedBackgroundView
-        }
+        selectedBackgroundView = darkSelectedBackgroundView
+//        switch style {
+//        case .automatic:
+//            selectedBackgroundView = isDarkMode ? darkSelectedBackgroundView : lightSelectedBackgroundView
+//        case .light:
+//            selectedBackgroundView = lightSelectedBackgroundView
+//        case .dark:
+//            selectedBackgroundView = darkSelectedBackgroundView
+//        }
     }
 }

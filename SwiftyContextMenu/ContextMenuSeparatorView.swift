@@ -28,8 +28,8 @@ class ContextMenuSeparatorView: UIStackView {
         backgroundColor = .clear
         axis = .vertical
         
-        addArrangedSubview(lightView)
-        addArrangedSubview(darkView)
+//        addArrangedSubview(lightView)
+//        addArrangedSubview(darkView)
         updateLightDarkVisibility()
     }
     
